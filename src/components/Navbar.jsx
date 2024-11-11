@@ -1,6 +1,46 @@
 import React from "react";
 
 function Navbar() {
+  const menuHandler = (e) => {
+    console.log(e);
+    // document.querySelector(".menu").classList.add("inline");
+    document.querySelector(".menu").classList.toggle("hidden");
+  };
+  const subMenuHandler = (e) => {
+    e.stopPropagation();
+  };
+  const blurHandler = () => {
+    console.log("oooookkkkk");
+    document.querySelector(".menu").classList.add("hidden");
+  };
+  const menuHandler2 = (e) => {
+    console.log(e);
+    // document.querySelector(".menu").classList.add("inline");
+    document.querySelector(".option").classList.toggle("mt-14");
+    document.querySelector(".menu2").classList.toggle("hidden");
+  };
+  const subMenuHandler2 = (e) => {
+    e.stopPropagation();
+  };
+  const blurHandler2 = () => {
+    console.log("oooookkkkk");
+    document.querySelector(".menu2").classList.add("hidden");
+    document.querySelector(".option").classList.remove("mt-14");
+  };
+
+  const verticalmenuHandler = () => {
+    document.querySelector(".h-menu").classList.add("hidden");
+  };
+
+  const barMenuHandler = () => {
+    document.querySelector(".h-menu").classList.remove("hidden");
+    // document.querySelector(".h-menu").classList.add("");
+  };
+  // const menuBtn = document.querySelector(".menu-btn");
+  // menuBtn.addEventListener("blur",()=>{
+  //   document.querySelector(".menu").classList.add("hidden");
+  // })
+
   return (
     <div className=" container mx-auto px-8 xl:max-w-[1240px]">
       {/* top section */}
@@ -186,23 +226,16 @@ function Navbar() {
       </div>
       {/* bottom section */}
       <div className=" flex items-center justify-between w-full py-4">
-        <ul className=" hidden md:flex justify-center gap-x-6 font-bold lg:text-xl">
+        <ul className=" hidden md:flex justify-center gap-x-6  font-bold lg:text-xl">
           <li className=" flex items-center justify-between gap-x-2 text-orange-400">
             خانه
-            <svg
-              width="13"
-              height="8"
-              viewBox="0 0 13 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0.183058 0.641371C0.404947 0.419482 0.752167 0.399311 0.996843 0.580856L1.06694 0.641371L6.45833 6.03248L11.8497 0.641371C12.0716 0.419482 12.4188 0.399311 12.6635 0.580856L12.7336 0.641371C12.9555 0.86326 12.9757 1.21048 12.7941 1.45516L12.7336 1.52525L6.90028 7.35859C6.67839 7.58048 6.33117 7.60065 6.08649 7.4191L6.01639 7.35859L0.183058 1.52525C-0.0610194 1.28118 -0.0610194 0.885449 0.183058 0.641371Z"
-                fill="#F7763D"
-              />
-            </svg>
           </li>
-          <li className=" flex items-center justify-between gap-x-2">
+          <li
+            onClick={menuHandler}
+            tabIndex={0}
+            onBlur={blurHandler}
+            className="menu-btn relative flex items-center justify-between gap-x-2"
+          >
             فروشگاه{" "}
             <svg
               width="13"
@@ -216,12 +249,26 @@ function Navbar() {
                 fill="#000"
               />
             </svg>
+            <ul className="hidden menu absolute w-full top-10 right-0 bg-orange-200 bg-opacity-30 transition-all ease-out delay-100 duration-500">
+              <li
+                className=" border-b text-orange-300 text-base p-2"
+                onClick={subMenuHandler}
+              >
+                سگ
+              </li>
+              <li
+                className=" border-b text-orange-300 text-base p-2"
+                onClick={subMenuHandler}
+              >
+                گربه
+              </li>
+            </ul>
           </li>
           <li>وبلاگ</li>
           <li>تماس با ما</li>
           <li>درباره ما</li>
         </ul>
-        <div className="inline md:hidden">
+        <div onClick={barMenuHandler} className="inline md:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -236,6 +283,79 @@ function Navbar() {
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
             />
           </svg>
+        </div>
+        <div
+          tabIndex={0}
+          onBlur={verticalmenuHandler}
+          className=" h-menu md:hidden absolute h-screen w-1/2 cursor-pointer top-16 p-8 right-0 bg-orange-400 transition-all"
+        >
+          <ul className=" relative flex flex-col justify-center gap-y-6 font-bold text-white text-xl">
+            <div
+              onClick={verticalmenuHandler}
+              className=" absolute top-0 left-0 "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+            <li className=" flex items-center justify-between hover:text-orange-200 gap-x-2 border-b-2 border-b-white py-2 border-opacity-35 cursor-pointer">
+              خانه
+            </li>
+            <li
+              onClick={menuHandler2}
+              tabIndex={0}
+              onBlur={blurHandler2}
+              className="menu-btn relative flex hover:text-orange-200 items-center justify-between gap-x-2 border-b-2 border-b-white py-2 border-opacity-35 cursor-pointer"
+            >
+              فروشگاه
+              <svg
+                width="13"
+                height="8"
+                viewBox="0 0 13 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.183058 0.641371C0.404947 0.419482 0.752167 0.399311 0.996843 0.580856L1.06694 0.641371L6.45833 6.03248L11.8497 0.641371C12.0716 0.419482 12.4188 0.399311 12.6635 0.580856L12.7336 0.641371C12.9555 0.86326 12.9757 1.21048 12.7941 1.45516L12.7336 1.52525L6.90028 7.35859C6.67839 7.58048 6.33117 7.60065 6.08649 7.4191L6.01639 7.35859L0.183058 1.52525C-0.0610194 1.28118 -0.0610194 0.885449 0.183058 0.641371Z"
+                  fill="#fff"
+                />
+              </svg>
+              <ul className="hidden menu2 absolute w-full top-10 right-0 bg-orange-400 transition-all ease-out">
+                <li
+                  className=" border-b bg-orange-300 text-white-300 text-base p-2"
+                  onClick={subMenuHandler}
+                >
+                  سگ
+                </li>
+                <li
+                  className=" border-b bg-orange-300 text-white-300 text-base p-2"
+                  onClick={subMenuHandler}
+                >
+                  گربه
+                </li>
+              </ul>
+            </li>
+            <li className="option border-b-2 hover:text-orange-200 border-b-white py-2 border-opacity-35 cursor-pointer">
+              وبلاگ
+            </li>
+            <li className="border-b-2 hover:text-orange-200 border-b-white py-2 border-opacity-35 cursor-pointer">
+              تماس با ما
+            </li>
+            <li className="border-b-2 hover:text-orange-200 border-b-white py-2 border-opacity-35 cursor-pointer">
+              درباره ما
+            </li>
+          </ul>
         </div>
         <div className=" flex items-center justify-center gap-x-3">
           <div>
