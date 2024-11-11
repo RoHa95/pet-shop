@@ -1,0 +1,63 @@
+@font-face {
+    font-family: yekanB;
+    font-style: normal;
+    font-weight: 100;
+
+    src: url("../assets/fonts/BYekan+.ttf") format("truetype");
+} 
+@font-face {
+    font-family: yekanB;
+    font-style: normal;
+    font-weight: 200;
+
+    src: url("../assets/fonts/BYekan+.ttf") format("truetype");
+}
+@font-face {
+    font-family: yekanB;
+    font-style: normal;
+    font-weight: 300;
+
+    src: url("../assets/fonts/BYekan+.ttf") format("truetype");
+}
+@font-face {
+    font-family: yekanB;
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("../assets/fonts/BYekan+.ttf") format("truetype");
+}
+@font-face {
+    font-family: yekanB;
+    font-style: normal;
+    font-weight: 500;
+
+    src: url("../assets/fonts/BYekan+.ttf") format("truetype");
+}
+@font-face {
+    font-family: yekanB;
+    font-style: normal;
+    font-weight: 600;
+
+    src: url("../assets/fonts/BYekanB.ttf") format("truetype");
+}
+ @font-face {
+    font-family: yekanB;
+    font-style: normal;
+    font-weight: 700;
+
+    src: url("../assets/fonts/BYekanB.ttf") format("truetype");
+}
+@font-face {
+    font-family: yekanB;
+    font-style: normal;
+    font-weight: 800;
+
+    src: url("../assets/fonts/BYekanB.ttf") format("truetype");
+}
+@font-face {
+    font-family: yekanB;
+    font-style: normal;
+    font-weight: 900;
+
+    src: url("../assets/fonts/BYekanB.ttf") format("truetype");
+}
