@@ -287,7 +287,7 @@ function Navbar() {
         <div
           tabIndex={0}
           onBlur={verticalmenuHandler}
-          className=" h-menu md:hidden absolute h-screen w-1/2 cursor-pointer top-16 p-8 right-0 bg-orange-400 transition-all"
+          className=" h-menu hidden md:hidden absolute h-screen w-1/2 cursor-pointer top-16 p-8 right-0 bg-orange-400 transition-all"
         >
           <ul className=" relative flex flex-col justify-center gap-y-6 font-bold text-white text-xl">
             <div
