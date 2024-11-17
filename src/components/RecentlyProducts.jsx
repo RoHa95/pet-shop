@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useProducts } from "../context/ProductsContext";
 import Card from "./Card";
-import dog from "../assets/images/dog.png"
+import dog from "../assets/images/dog.png";
+import { ThreeDots } from "react-loader-spinner";
 function RecentlyProducts() {
   const products = useProducts([]);
   const scrollableRef = useRef(null);
@@ -22,10 +23,7 @@ function RecentlyProducts() {
     setLatestProducts(finalProducts.slice(0, 4));
     console.log("kharrr");
   }, [products]);
-  useEffect(() => {
-    // circles[0].classList.add("scale-150");
-    // circles[0].classList.add("w-6");
-  }, [circles]);
+
   for (let i = 0; i < circleNumber; i++) {
     circle.push(i);
     console.log("whattt????");
@@ -61,26 +59,19 @@ function RecentlyProducts() {
     });
     if (id === "0") {
       setLatestProducts(finalProducts.slice(0, 4));
-      // circles[0].classList.remove("bg-orange-200");
-      // circles[0].classList.add("bg-orange-500");
-      // circles[0].classList.add("w-6");
+
       console.log(latestProducts);
     } else if (id === "1") {
       setLatestProducts(finalProducts.slice(4, 8));
-      // scrollableRef.current.scrollLeft -= 6500; // Scroll 100 pixels to the left
-      // circles[1].classList.add("bg-orange-500");
-      // circles[1].classList.add("w-6");
+
       console.log(latestProducts);
     } else if (id === "2") {
       setLatestProducts(finalProducts.slice(8, 12));
-      // circles[2].classList.add("bg-orange-500");
-      // circles[2].classList.add("w-6");
+
       console.log(latestProducts);
-      // scrollableRef.current.scrollLeft += 6500; // Scroll 100 pixels to the left
     } else if (id === "3") {
       setLatestProducts(finalProducts.slice(12, 16));
-      // circles[3].classList.add("bg-orange-500");
-      // circles[3].classList.add("w-6");
+
       console.log(latestProducts);
     }
   };
@@ -88,16 +79,22 @@ function RecentlyProducts() {
     <div className="w-full relative container mx-auto sm:px-8 xl:max-w-[1240px]">
       <div className="w-full flex items-center justify-between mb-12 mt-4">
         <div className=" text-sm sm:text-3xl font-bold">جدیدترین محصولات</div>
-        <div className=" text-xs sm:text-2xl font-bold text-orange-500">مشاهده همه</div>
+        <div className=" text-xs sm:text-2xl font-bold text-orange-500">
+          مشاهده همه
+        </div>
       </div>
-      
+
       <div
         ref={scrollableRef}
         className="w-full flex sscroll items-center sm:gap-5 justify-between overflow-x-hidden sm:overflow-x-scroll no-scrollbar"
       >
-        {latestProducts.map((item) => (
-          <Card key={item.id} data={item} />
-        ))}
+        {latestProducts.length !== 0 ? (
+          latestProducts.map((item) => <Card key={item.id} data={item} />)
+        ) : (
+          <div className="w-full flex items-center justify-center">
+          <ThreeDots color="#f97316" />
+          </div>
+        )}
         <div
           onClick={dragLeftHandler}
           className={
