@@ -13,8 +13,8 @@ function Card({ data }) {
       </div>
       <div className=" flex w-full flex-col items-center justify-between gap-y-5">
         <div className="w-full flex items-center justify-between">
-          <div className=" text-2xl font-bold text-emerald-400">قیمت:</div>
-          <div className=" text-2xl font-bold text-emerald-400">{price}</div>
+          <div className=" text-2xl font-bold text-emerald-400 group-hover:text-orange-500">قیمت:</div>
+          <div className=" text-2xl font-bold text-emerald-400 group-hover:text-orange-500">{price}</div>
         </div>
         <div className=" group-hover:bg-orange-500 bg-cyan-600 flex items-center justify-between w-full py-2 px-6 gx2  rounded-lg">
           <div className=" group-hover:bg-orange-500 bg-cyan-600">
