@@ -31,22 +31,22 @@ function Category() {
       </div>
       <div className=" flex items-center justify-between gap-x-5">
         <div>
-          <Link to="/products">
+          <Link to="/category/1">
             <img src={pink} alt="" />
           </Link>
         </div>
         <div>
-          <Link to="/products">
+          <Link to="/category/2">
             <img src={green} alt="" />
           </Link>
         </div>
         <div>
-          <Link to="/products">
+          <Link to="/category/3">
             <img src={orange} alt="" />
           </Link>
         </div>
         <div>
-          <Link to="/products">
+          <Link to="/category/4">
             <img src={violet} alt="" />
           </Link>
         </div>
