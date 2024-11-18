@@ -5,6 +5,7 @@ import Ads from "../components/Ads";
 import Banner from "../components/Banner";
 import RecentlyProducts from "../components/RecentlyProducts";
 import Category from "../components/Category";
+import Lavazem from "../components/Lavazem";
 
 function Home() {
   const products = useProducts();
@@ -16,6 +17,7 @@ function Home() {
     <Banner/>
     <RecentlyProducts/>
     <Category/>
+    <Lavazem/>
     </>
 
    )

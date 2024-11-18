@@ -15,6 +15,11 @@ function CategoryList(props) {
       concept: ["مکمل غذایی سگ", "مکمل غذایی گربه"],
       title: "قرص و پودر های مولتی ویتامین",
     },
+    {
+      id: 5,
+      concept: ["لوازم نگهداری سگ ", "لوازم نگهداری گربه "],
+      title: "لوازم نگهداری حیوانات خانگی",
+    },
   ];
   const { id } = useParams();
   const finalresult = [];
