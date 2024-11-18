@@ -87,7 +87,7 @@ function RecentlyProducts() {
 
       <div
         ref={scrollableRef}
-        className="flex sscroll items-center sm:gap-5 justify-between overflow-x-hidden sm:overflow-x-scroll no-scrollbar"
+        className="flex justify-between items-stretch sscroll  sm:gap-5 overflow-x-hidden sm:overflow-x-scroll no-scrollbar"
       >
         {latestProducts.length !== 0 ? (
           latestProducts.map((item) => <Card key={item.id} data={item} />)

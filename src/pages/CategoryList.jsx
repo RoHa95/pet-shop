@@ -37,11 +37,11 @@ function CategoryList(props) {
       <Ads />
       <Navbar />
 
-      <div className="  container mx-auto px-8  my-10">
+      <div className="  container mx-auto px-8  my-10 xl:max-w-[1240px]">
         <h3 className=" text-3xl mb-8 font-bold border-b-2 w-fit py-2 border-b-orange-500">
           {result[0].title}
         </h3>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto">
           {productsToShow.map((item) => (
             <Card key={item.id} data={item} />
           ))}

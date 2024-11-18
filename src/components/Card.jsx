@@ -4,20 +4,20 @@ function Card({ data }) {
   const { id, image, name, category, price, introduction } = data;
 
   return (
-    <div className="max-w-[275px] h-[454px] group flex flex-col border-2 border-dashed rounded-xl p-5 border-gray-300 hover:border-orange-500 hover:bg-orange-500 hover:bg-opacity-10 items-center justify-between">
-      <div className=" flex w-full flex-col items-start justify-between">
-        <div className="h-60 w-60 p-4">
-          <img src={image} alt="p-image" className="w-full h-full" />
+    <div className=" xl:max-w-[275px] xl:h-[454px] group flex flex-col border-2 border-dashed rounded-xl p-5 border-gray-300 hover:border-orange-500 hover:bg-orange-500 hover:bg-opacity-10 items-center justify-between">
+      <div className=" flex w-full h-full flex-col items-start justify-between">
+        <div className="xl:h-60 xl:w-60 p-2 xl:p-4">
+          <img src={image} alt="p-image" className="min-w-28" />
         </div>
-        <span className=" text-gray-500 font-bold text-xl">{name}</span>
+        <span className=" text-gray-500 font-bold text-base xl:text-xl">{name}</span>
       </div>
-      <div className=" flex w-full flex-col items-center justify-between gap-y-5">
+      <div className=" flex w-full flex-col items-center justify-between xl:gap-y-5">
         <div className="w-full flex items-center justify-between">
-          <div className=" text-2xl font-bold text-emerald-400 group-hover:text-orange-500">قیمت:</div>
-          <div className=" text-2xl font-bold text-emerald-400 group-hover:text-orange-500">{price}</div>
+          <div className=" text-lg xl:text-2xl font-bold text-emerald-400 group-hover:text-orange-500">قیمت:</div>
+          <div className=" text-lg xl:text-2xl font-bold text-emerald-400 group-hover:text-orange-500">{price}</div>
         </div>
-        <div className=" group-hover:bg-orange-500 bg-cyan-600 flex items-center justify-between w-full py-2 px-6 gx2  rounded-lg">
-          <div className=" group-hover:bg-orange-500 bg-cyan-600">
+        <div className=" group-hover:bg-orange-500 bg-cyan-600 flex items-center justify-center xl:justify-between w-full py-2 px-2 sm:px-6 gap-x-2  rounded-lg">
+          <div className="hidden sm:flex group-hover:bg-orange-500 bg-cyan-600">
             <svg
               width="27"
               height="26"
@@ -33,7 +33,7 @@ function Card({ data }) {
               />
             </svg>
           </div>
-          <div className=" font-bold text-lg text-white">افزودن به سبد خرید</div>
+          <div className=" font-bold text-xs xl:text-lg text-white ">افزودن به سبد خرید</div>
         </div>
       </div>
     </div>
