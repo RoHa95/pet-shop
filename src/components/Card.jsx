@@ -6,7 +6,7 @@ function Card({ data }) {
   return (
     <div className=" xl:max-w-[275px] xl:h-[454px] group flex flex-col border-2 border-dashed rounded-xl p-5 border-gray-300 hover:border-orange-500 hover:bg-orange-500 hover:bg-opacity-10 items-center justify-between">
       <div className=" flex w-full h-full flex-col items-start justify-between">
-        <div className="xl:h-60 xl:w-60 p-2 xl:p-4">
+        <div className="xl:h-60 xl:w-60 p-2 xl:p-4 flex items-center justify-center">
           <img src={image} alt="p-image" className="min-w-28" />
         </div>
         <span className=" text-gray-500 font-bold text-base xl:text-xl">{name}</span>
@@ -14,7 +14,7 @@ function Card({ data }) {
       <div className=" flex w-full flex-col items-center justify-between xl:gap-y-5">
         <div className="w-full flex items-center justify-between">
           <div className=" text-lg xl:text-2xl font-bold text-emerald-400 group-hover:text-orange-500">قیمت:</div>
-          <div className=" text-lg xl:text-2xl font-bold text-emerald-400 group-hover:text-orange-500">{price}</div>
+          <div className=" text-lg xl:text-2xl font-bold text-emerald-400 group-hover:text-orange-500">{price}<span className="pr-1">تومان</span></div>
         </div>
         <div className=" group-hover:bg-orange-500 bg-cyan-600 flex items-center justify-center xl:justify-between w-full py-2 px-2 sm:px-6 gap-x-2  rounded-lg">
           <div className="hidden sm:flex group-hover:bg-orange-500 bg-cyan-600">
