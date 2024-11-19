@@ -22,7 +22,7 @@ function Lavazem() {
       <div className=" relative col-start-1 col-end-4 md:col-end-3 rounded-2xl pb-6">
         <img src={bglavazem} alt="" className="h-full" />
         <div className=" absolute top-0 left-0 bg-blue-100 border-dashed border-blue-400 border-2 h-[calc(100%-24px)] w-full -z-10 rounded-2xl -rotate-3 "></div>
-        <div className=" absolute top-24 left-12 flex items-center justify-center flex-col gap-y-5">
+        <div className=" absolute w-full pr-5 sm:pr-0 top-24 left-0 flex items-center justify-center flex-col gap-y-5">
           <div className="flex w-full items-center justify-center font-bold text-lg lg:text-2xl text-white">
             لوازم نگهداری سگ و گربه
           </div>
@@ -47,7 +47,7 @@ function Lavazem() {
           </Link>
         </div>
       </div>
-      <div className=" col-start-4 md:col-start-3 col-end-8 max-h-[820px] grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 overflow-y-scroll">
+      <div className=" col-start-4 overflow-auto md:col-start-3 col-end-8 max-h-[820px] grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 ">
         {productsToShow.map((item) => (
           <CardLavazem key={item.id} data={item} />
         ))}
