@@ -67,6 +67,10 @@ const reducer = (state, action) => {
         const newLikeItems = state.likedItems.filter(
           (item) => item.id !== action.payload.id
         );
+        const unlikeIndex = state.likedItems.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        state.likedItems[unlikeIndex].liked= false;
         return {
           ...state,
           likedItems: [...newLikeItems],
