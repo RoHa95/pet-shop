@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import CategoryList from "./pages/CategoryList";
 import BlogsProvider from "./context/BlogsContext";
 import CardProvider from "./context/CardContext";
+import FavoriteProducts from "./pages/FavoriteProducts";
 function App() {
   return (
     <CardProvider>
@@ -17,6 +18,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/category/:id" element={<CategoryList />} />
             <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="/favoriteProducts" element={<FavoriteProducts />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BlogsProvider>
