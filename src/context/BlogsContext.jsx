@@ -11,7 +11,7 @@ function BlogsProvider({ children }) {
         const result = await api.get("/blog");
         setBlogs(result);
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
       }
     };
 

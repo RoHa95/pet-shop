@@ -12,28 +12,28 @@ function RecentlyProducts() {
   const [showBtn, setShowBtn] = useState(true);
   const [showRBtn, setShowRBtn] = useState(false);
   const finalProducts = products.slice(0, 16);
-  console.log(finalProducts);
+  // console.log(finalProducts);
   const circles = document.querySelectorAll(".menuu");
-  console.log(circles[1]);
+  // console.log(circles[1]);
   const circleNumber = Math.ceil(finalProducts.length / 4);
-  console.log(circleNumber);
+  // console.log(circleNumber);
   // const scrollableRef = document.querySelector(".sscroll");
   const circle = [];
 
   useEffect(() => {
     setLatestProducts(finalProducts.slice(0, 4));
-    console.log("kharrr");
+    // console.log("kharrr");
   }, [products]);
 
   for (let i = 0; i < circleNumber; i++) {
     circle.push(i);
-    console.log("whattt????");
-    console.log(circle);
+    // console.log("whattt????");
+    // console.log(circle);
   }
 
   const dragLeftHandler = () => {
     scrollableRef.current.scrollLeft -= 100;
-    console.log(scrollableRef.current.scrollLeft);
+    // console.log(scrollableRef.current.scrollLeft);
 
     setShowRBtn(true);
   };
@@ -46,7 +46,7 @@ function RecentlyProducts() {
   };
 
   const clickHandler = (e) => {
-    console.log(e.target.dataset.navid);
+    // console.log(e.target.dataset.navid);
     const id = e.target.dataset.navid;
     scrollableRef.current.scrollLeft = 0;
     circles.forEach((item) => {
@@ -61,19 +61,19 @@ function RecentlyProducts() {
     if (id === "0") {
       setLatestProducts(finalProducts.slice(0, 4));
 
-      console.log(latestProducts);
+      // console.log(latestProducts);
     } else if (id === "1") {
       setLatestProducts(finalProducts.slice(4, 8));
 
-      console.log(latestProducts);
+      // console.log(latestProducts);
     } else if (id === "2") {
       setLatestProducts(finalProducts.slice(8, 12));
 
-      console.log(latestProducts);
+      // console.log(latestProducts);
     } else if (id === "3") {
       setLatestProducts(finalProducts.slice(12, 16));
 
-      console.log(latestProducts);
+      // console.log(latestProducts);
     }
   };
   return (

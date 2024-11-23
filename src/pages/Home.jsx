@@ -11,7 +11,7 @@ import Footer from "../components/Footer";
 
 function Home() {
   const products = useProducts();
-  console.log(products);
+  // console.log(products);
    return(
     <>
     <Ads/>

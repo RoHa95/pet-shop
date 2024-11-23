@@ -31,7 +31,7 @@ function CategoryList(props) {
   search.forEach((item) => {
     finalresult.push(products.filter((x) => x.categories.includes(item)));
   });
-  console.log(finalresult.flat(2));
+  // console.log(finalresult.flat(2));
   // export products result
   const productsToShow = finalresult.flat(2);
   useEffect(() => {

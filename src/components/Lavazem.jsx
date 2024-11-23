@@ -12,10 +12,10 @@ function Lavazem() {
   categoryList.forEach((item) => {
     finalresult.push(products.filter((x) => x.categories.includes(item)));
   });
-  console.log(finalresult.flat(2));
+  // console.log(finalresult.flat(2));
   // export products result
   const productsToShow = finalresult.flat(2).slice(0, 6);
-  console.log(productsToShow);
+  // console.log(productsToShow);
 
   return (
     <div className=" container max-h-[820px] px-8 mx-auto xl:max-w-[1240px] grid grid-cols-7 my-6 p-4 gap-x-10">

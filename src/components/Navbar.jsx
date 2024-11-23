@@ -2,7 +2,7 @@ import React from "react";
 
 function Navbar() {
   const menuHandler = (e) => {
-    console.log(e);
+    // console.log(e);
     // document.querySelector(".menu").classList.add("inline");
     document.querySelector(".menu").classList.toggle("hidden");
   };
@@ -10,11 +10,11 @@ function Navbar() {
     e.stopPropagation();
   };
   const blurHandler = () => {
-    console.log("oooookkkkk");
+    // console.log("oooookkkkk");
     document.querySelector(".menu").classList.add("hidden");
   };
   const menuHandler2 = (e) => {
-    console.log(e);
+    // console.log(e);
     // document.querySelector(".menu").classList.add("inline");
     document.querySelector(".option").classList.toggle("mt-14");
     document.querySelector(".menu2").classList.toggle("hidden");
@@ -23,7 +23,7 @@ function Navbar() {
     e.stopPropagation();
   };
   const blurHandler2 = () => {
-    console.log("oooookkkkk");
+    // console.log("oooookkkkk");
     document.querySelector(".menu2").classList.add("hidden");
     document.querySelector(".option").classList.remove("mt-14");
   };
