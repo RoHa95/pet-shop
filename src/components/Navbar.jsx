@@ -1,29 +1,26 @@
 import React from "react";
+import { useCard } from "../context/CardContext";
 
 function Navbar() {
+  const [state] = useCard();
+ const itemsCounter = state.itemsCounter;
   const menuHandler = (e) => {
-    // console.log(e);
-    // document.querySelector(".menu").classList.add("inline");
     document.querySelector(".menu").classList.toggle("hidden");
   };
   const subMenuHandler = (e) => {
     e.stopPropagation();
   };
   const blurHandler = () => {
-    // console.log("oooookkkkk");
     document.querySelector(".menu").classList.add("hidden");
   };
   const menuHandler2 = (e) => {
-    // console.log(e);
-    // document.querySelector(".menu").classList.add("inline");
     document.querySelector(".option").classList.toggle("mt-14");
     document.querySelector(".menu2").classList.toggle("hidden");
   };
-  const subMenuHandler2 = (e) => {
-    e.stopPropagation();
-  };
+  // const subMenuHandler2 = (e) => {
+  //   e.stopPropagation();
+  // };
   const blurHandler2 = () => {
-    // console.log("oooookkkkk");
     document.querySelector(".menu2").classList.add("hidden");
     document.querySelector(".option").classList.remove("mt-14");
   };
@@ -31,15 +28,9 @@ function Navbar() {
   const verticalmenuHandler = () => {
     document.querySelector(".h-menu").classList.add("hidden");
   };
-
   const barMenuHandler = () => {
     document.querySelector(".h-menu").classList.remove("hidden");
-    // document.querySelector(".h-menu").classList.add("");
   };
-  // const menuBtn = document.querySelector(".menu-btn");
-  // menuBtn.addEventListener("blur",()=>{
-  //   document.querySelector(".menu").classList.add("hidden");
-  // })
 
   return (
     <div className=" container mx-auto px-8 xl:max-w-[1240px]">
@@ -185,7 +176,7 @@ function Navbar() {
                 />
               </svg>
               <div className=" absolute top-0 right-0 flex items-center justify-center bg-orange-400 text-white h-4 w-4 lg:h-6 lg:w-6 rounded-full">
-                1
+                {itemsCounter}
               </div>
             </div>
             <div className="relative py-1 px-2 lg:py-2 lg:px-3 flex items-center justify-center">
