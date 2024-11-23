@@ -15,6 +15,10 @@ if(index === -1){
 }
 
 }
+const sumLikedProducts = (products) => {
+  const likesCounter = products.reduce((acc, cur) => acc + 1, 0);
+  return { likesCounter };
+};
 const productLikePosition = (state, id)=>{
   const index =state.likedItems.findIndex(item => item.id === id);
   if(index === -1){
@@ -24,4 +28,4 @@ const productLikePosition = (state, id)=>{
   }
   
   }
-export { sumProducts, productQuantity, productLikePosition };
+export { sumProducts, productQuantity, productLikePosition,sumLikedProducts };

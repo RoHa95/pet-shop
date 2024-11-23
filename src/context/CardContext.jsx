@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { sumProducts } from "../helper/helper";
+import { sumProducts,sumLikedProducts } from "../helper/helper";
 
 const initialState = {
   selectedItems: [],
   likedItems:[],
   itemsCounter: 0,
+  likesCounter:0,
   total: 0,
   checkout: false,
 };
@@ -60,6 +61,7 @@ const reducer = (state, action) => {
         }
         return {
           ...state,
+          ...sumLikedProducts(state.likedItems)
         };
       case "UNLIKE_ITEM":
         const newLikeItems = state.likedItems.filter(
@@ -68,6 +70,7 @@ const reducer = (state, action) => {
         return {
           ...state,
           likedItems: [...newLikeItems],
+          ...sumLikedProducts(newLikeItems)
         };
     default:
       throw new Error("Invalid Action");

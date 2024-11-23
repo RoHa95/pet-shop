@@ -1,9 +1,11 @@
 import React from "react";
 import { useCard } from "../context/CardContext";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [state] = useCard();
  const itemsCounter = state.itemsCounter;
+ const likesCounter = state.likesCounter;
   const menuHandler = (e) => {
     document.querySelector(".menu").classList.toggle("hidden");
   };
@@ -39,6 +41,7 @@ function Navbar() {
         {/* right section */}
         <div className=" w-full md:w-1/2 flex flex-row justify-start md:items-center md:justify-between">
           {/* logo  */}
+          <Link to="/home">
           <div className=" flex items-center justify-start">
             <svg
               width="58"
@@ -76,6 +79,8 @@ function Navbar() {
               شاپت
             </span>
           </div>
+          </Link>
+        
           {/* search */}
           <div className=" flex w-full rounded-full h-12 px-2 bg-gray-100 items-center justify-between md:mx-4">
             <input
@@ -194,7 +199,7 @@ function Navbar() {
                 />
               </svg>
               <div className=" absolute top-0 right-0 flex items-center justify-center bg-orange-400 text-white h-4 w-4 lg:h-6 lg:w-6 rounded-full">
-                0
+                {likesCounter}
               </div>
             </div>
             <div>
@@ -218,16 +223,19 @@ function Navbar() {
       {/* bottom section */}
       <div className=" flex items-center justify-between w-full py-4">
         <ul className=" hidden md:flex justify-center gap-x-6  font-bold lg:text-xl">
+          <Link to="/home">
           <li className=" flex items-center justify-between gap-x-2 text-orange-400">
             خانه
           </li>
+          </Link>
+         
           <li
             onClick={menuHandler}
             tabIndex={0}
             onBlur={blurHandler}
             className="menu-btn relative flex items-center justify-between gap-x-2"
           >
-            فروشگاه{" "}
+            فروشگاه
             <svg
               width="13"
               height="8"
@@ -241,21 +249,28 @@ function Navbar() {
               />
             </svg>
             <ul className="hidden menu absolute w-full top-10 right-0 bg-orange-200 bg-opacity-30 transition-all ease-out delay-100 duration-500">
+           
               <li
                 className=" border-b text-orange-300 text-base p-2"
                 onClick={subMenuHandler}
               >
                 سگ
               </li>
+          
+             
               <li
                 className=" border-b text-orange-300 text-base p-2"
                 onClick={subMenuHandler}
               >
                 گربه
               </li>
+             
             </ul>
           </li>
+          
+          <Link to="/category/5" className="text-black">
           <li>وبلاگ</li>
+          </Link>
           <li>تماس با ما</li>
           <li>درباره ما</li>
         </ul>
@@ -300,9 +315,11 @@ function Navbar() {
                 />
               </svg>
             </div>
+            <Link to="/home" className="text-white">
             <li className=" flex items-center justify-between hover:text-orange-200 gap-x-2 border-b-2 border-b-white py-2 border-opacity-35 cursor-pointer">
               خانه
             </li>
+            </Link>
             <li
               onClick={menuHandler2}
               tabIndex={0}
@@ -337,9 +354,11 @@ function Navbar() {
                 </li>
               </ul>
             </li>
+            <Link to="/category/5" className="text-white">
             <li className="option border-b-2 hover:text-orange-200 border-b-white py-2 border-opacity-35 cursor-pointer">
               وبلاگ
             </li>
+            </Link>
             <li className="border-b-2 hover:text-orange-200 border-b-white py-2 border-opacity-35 cursor-pointer">
               تماس با ما
             </li>
