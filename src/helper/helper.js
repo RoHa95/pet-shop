@@ -15,4 +15,13 @@ if(index === -1){
 }
 
 }
-export { sumProducts, productQuantity };
+const productLikePosition = (state, id)=>{
+  const index =state.likedItems.findIndex(item => item.id === id);
+  if(index === -1){
+    return 0 
+  } else{
+    return state.likedItems[index].liked;
+  }
+  
+  }
+export { sumProducts, productQuantity, productLikePosition };

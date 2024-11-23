@@ -3,6 +3,7 @@ import { sumProducts } from "../helper/helper";
 
 const initialState = {
   selectedItems: [],
+  likedItems:[],
   itemsCounter: 0,
   total: 0,
   checkout: false,
@@ -53,6 +54,21 @@ const reducer = (state, action) => {
         total: 0,
         checkout: true,
       };
+      case "LIKE_ITEM":
+        if (!state.likedItems.find((item) => item.id === action.payload.id)) {
+          state.likedItems.push({ ...action.payload, liked: true });
+        }
+        return {
+          ...state,
+        };
+      case "UNLIKE_ITEM":
+        const newLikeItems = state.likedItems.filter(
+          (item) => item.id !== action.payload.id
+        );
+        return {
+          ...state,
+          likedItems: [...newLikeItems],
+        };
     default:
       throw new Error("Invalid Action");
   }
