@@ -205,6 +205,7 @@ function Navbar() {
                 {likesCounter}
               </div>
             </div>
+            <Link to="/auth">
             <div>
               <svg
                 viewBox="0 0 27 34"
@@ -220,6 +221,8 @@ function Navbar() {
                 />
               </svg>
             </div>
+            </Link>
+           
           </div>
         </div>
       </div>
