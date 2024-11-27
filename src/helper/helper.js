@@ -37,16 +37,41 @@ const validateForm = ({ mobile, email, pass, repass }) => {
   if (mobile.length !== 11) {
     errors.mobile = "لطفا شماره همراه خود را به صورت صحیح وارد کنید.";
   }
-  if(!validEmail(email)){
-    errors.email = "لطفا ایمیل را به صورت صحیح وارد کنید."
+  if (!validEmail(email)) {
+    errors.email = "لطفا ایمیل را به صورت صحیح وارد کنید.";
   }
-  if(pass.length < 6){
-    errors.pass = "لطفا حداقل 8 کاراکتر را وارد کنید"
+  if (pass.length < 6) {
+    errors.pass = "لطفا حداقل 8 کاراکتر را وارد کنید";
   }
-  if(repass !== pass){
-    errors.repass = "لطفا پسورد را به صورت صحیح وارد کنید."
+  if (!repass || repass !== pass) {
+    errors.repass = "لطفا پسورد را به صورت صحیح وارد کنید.";
   }
   return errors;
+};
+const validateSigningForm = ({ mobile, pass }) => {
+  const errors = { mobile: "", pass: "" };
+
+  if (mobile.length !== 11) {
+    errors.mobile = "لطفا شماره همراه خود را به صورت صحیح وارد کنید.";
+  }
+  if (pass.length < 6) {
+    errors.pass = "لطفا حداقل 8 کاراکتر را وارد کنید";
+  }
+  return errors;
+};
+const crossValidate = ({ mobile, email, pass, repass }) => {
+  let result = false;
+  if (!mobile && !email && !pass && !repass) {
+    result = true;
+  }
+  return result;
+};
+const crossSigingValidate = ({ mobile, pass }) => {
+  let result = false;
+  if (!mobile && !pass) {
+    result = true;
+  }
+  return result;
 };
 export {
   sumProducts,
@@ -54,5 +79,8 @@ export {
   productLikePosition,
   sumLikedProducts,
   validEmail,
-  validateForm
+  validateForm,
+  crossValidate,
+  validateSigningForm,
+  crossSigingValidate,
 };

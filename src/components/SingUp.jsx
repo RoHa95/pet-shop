@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { validEmail,validateForm } from "../helper/helper";
+import { validEmail,validateForm,crossValidate } from "../helper/helper";
 import { Link } from "react-router-dom";
 function SingUp({ setStep }) {
   const [mobile, setMobile] = useState("");
@@ -16,9 +16,18 @@ function SingUp({ setStep }) {
     e.preventDefault();
     setAlert(validateForm({mobile,email,pass,repass}));
     console.log(alert);
+    const result = crossValidate({mobile,email,pass,repass});
+    if(!result){
+      setStep(2);
+      console.log("click")
+    }
+    console.log("ops...")
     return;
   };
  
+  const navigateHandler =()=>{
+    setStep(2);
+  }
   return (
     <>
       <form className=" w-fit py-6 px-8 bg-white rounded-3xl my-auto h-fit flex flex-col items-stretch justify-start">
@@ -58,7 +67,7 @@ function SingUp({ setStep }) {
         </div>
         <div className=" w-full flex items-center justify-between">
           <div className="text-orange-500 font-bold text-2xl mb-3">ثبت نام</div>
-          <div className="bg-orange-500 text-white rounded-sm px-2 pb-1 font-normal text-sm cursor-pointer mb-3">
+          <div onClick={navigateHandler} className="bg-orange-500 text-white rounded-sm px-2 pb-1 font-normal text-sm cursor-pointer mb-3">
             ورود
           </div>
         </div>

@@ -1,9 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { crossSigingValidate, validateSigningForm } from "../helper/helper";
+import { Link, useNavigate } from "react-router-dom";
+import toast, {Toaster} from "react-hot-toast"
+// import alert from "react-alert-template-mui"
+// import AlertDialog from "react-alert-template-mui";
+
 
 function SinginForm({setStep}) {
-  console.log(setStep);
-  
+  const [mobile, setMobile] = useState("");
+  const [pass, setPass] = useState("");
+  const navigate = useNavigate();
+  const [alert, setAlert] = useState({
+    mobile: "",
+    pass: "",
+  });
+  const clickHandler =()=>{
+    setStep(1)
+  }
+  const addHandler=(e)=>{
+    e.preventDefault();
+    setAlert(validateSigningForm({mobile,pass}));
+    console.log(alert);
+    const result = crossSigingValidate({mobile,pass});
+    if(!result){
+      toast.success("ورود با موفقیت انجام شد.");
+      // navigate("/home");
+      setTimeout(() => navigate('/home'), 2000);
+      // alert("ورود انجام شد");
+      // AlertDialog.apply("ojjjj")
+      // alert.show("Oh look, an alert!");
+      console.log("ورود")
+    }
+    console.log("ops...")
+    return;
+  }
   return (
     <div className=" w-fit py-6 px-8 bg-white rounded-3xl my-auto h-fit flex flex-col items-start justify-start">
     
@@ -47,7 +77,7 @@ function SinginForm({setStep}) {
      
       <div className=" w-full flex items-center justify-between">
         <div className="text-orange-500 font-bold text-2xl mb-3">ورود </div>
-        <div className="bg-orange-500 text-white rounded-sm px-2 pb-1 font-normal text-sm cursor-pointer mb-3">
+        <div onClick={clickHandler} className="bg-orange-500 text-white rounded-sm px-2 pb-1 font-normal text-sm cursor-pointer mb-3">
         ثبت نام
         </div>
       </div>
@@ -58,8 +88,12 @@ function SinginForm({setStep}) {
         id="phone"
           type="text"
           placeholder="شماره تلفن همراه"
+          onChange={(e) => setMobile(e.target.value)}
           className=" w-full p-2 border border-orange-500 rounded-md"
         />
+         <div className="h-2">
+          {alert.mobile && <p className="bg-red-100 text-red-400 text-[10px] py-0.5 px-1 rounded">{alert.mobile}</p>}
+          </div>
       </div>
       
       <div className=" flex flex-col mb-2">
@@ -68,13 +102,18 @@ function SinginForm({setStep}) {
         id="pass"
           type="password"
           placeholder="رمز ورود"
+          onChange={(e) => setPass(e.target.value)}
           className=" w-full p-2 border border-orange-500 rounded-md"
         />
+        <div className="h-2">
+           {alert.pass && <p className="bg-red-100 text-red-400 text-xs py-0.5 px-1 rounded">{alert.pass}</p>}
+           </div>
       </div>
 
-      <button className=" w-full p-2 border text-white hover:bg-orange-200 hover:text-orange-500 bg-orange-500 border-orange-500 rounded-md my-4">
-        ثبت نام
+      <button onClick={addHandler} className=" w-full p-2 border text-white hover:bg-orange-200 hover:text-orange-500 bg-orange-500 border-orange-500 rounded-md my-4">
+        ورود 
       </button>
+      <Toaster/>
     </div>
   );
 }

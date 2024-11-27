@@ -12,7 +12,9 @@
   "dependencies": {
     "axios": "^1.7.7",
     "react": "^18.3.1",
+    "react-alert-template-mui": "^1.0.7",
     "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "6.27",
     "react-use-draggable-scroll": "^0.4.7"
