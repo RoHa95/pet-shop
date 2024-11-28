@@ -257,14 +257,14 @@ function Navbar() {
             <ul className="hidden menu absolute w-full top-10 right-0 bg-orange-200 bg-opacity-30 transition-all ease-out delay-100 duration-500">
               <li
                 className=" border-b text-orange-300 text-base p-2"
-                onClick={subMenuHandler}
+                onClick={()=>navigate("/category/7")}
               >
                 سگ
               </li>
 
               <li
                 className=" border-b text-orange-300 text-base p-2"
-                onClick={subMenuHandler}
+                onClick={()=>navigate("/category/6")}
               >
                 گربه
               </li>
