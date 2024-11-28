@@ -20,6 +20,16 @@ function CategoryList(props) {
       concept: ["لوازم نگهداری سگ ", "لوازم نگهداری گربه "],
       title: "لوازم نگهداری حیوانات خانگی",
     },
+    {
+      id: 6,
+      concept: ["غذای گربه", "لوازم نگهداری گربه "],
+      title:"غذا و لوازم گربه",
+    },
+    {
+      id: 7,
+      concept: ["غذای سگ", "لوازم نگهداری سگ "],
+      title:"غذا و لوازم سگ",
+    },
   ];
   const { id } = useParams();
   const finalresult = [];

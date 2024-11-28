@@ -1,6 +1,7 @@
 import React from "react";
 import { useCard } from "../context/CardContext";
 import { productQuantity, productLikePosition } from "../helper/helper";
+import { useNavigate } from "react-router-dom";
 
 function Card({ data }) {
   const { id, image, name, category, price, introduction } = data;
@@ -8,13 +9,13 @@ function Card({ data }) {
   const quantity = productQuantity(state, id);
   const likePosition = productLikePosition(state, id);
   console.log(likePosition);
-
+const navigate = useNavigate();
   // console.log(state);
   const clickHandler = (type) => {
     dispatch({ type, payload: data });
   };
   return (
-    <div className=" xl:max-w-[275px] xl:h-[454px] group flex flex-col border-2 border-dashed rounded-xl p-5 border-gray-300 hover:border-orange-500 hover:bg-orange-500 hover:bg-opacity-10 items-center justify-between">
+    <div onClick={()=>{navigate(`/products/${id}`)}} className=" xl:max-w-[275px] xl:h-[454px] group flex flex-col border-2 border-dashed rounded-xl p-5 border-gray-300 hover:border-orange-500 hover:bg-orange-500 hover:bg-opacity-10 items-center justify-between">
       <div className=" flex w-full h-full flex-col items-start justify-between">
         <div className=" relative xl:h-60 xl:w-60 p-2 xl:p-4 flex items-center justify-center">
           <img src={image} alt="p-image" className="min-w-28" />
@@ -29,7 +30,8 @@ function Card({ data }) {
               stroke-width="1.5"
               stroke="currentColor"
               className={likePosition?"hidden":"h-6 w-6"}
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 clickHandler("LIKE_ITEM");
               }}
             >
@@ -44,7 +46,9 @@ function Card({ data }) {
               viewBox="0 0 24 24"
               fill="#dc2626"
               className={likePosition?"h-6 w-6":"hidden"}
-              onClick={()=>{clickHandler("UNLIKE_ITEM")}}
+              onClick={()=>{
+                e.stopPropagation();
+                clickHandler("UNLIKE_ITEM")}}
             >
               <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
             </svg>
@@ -86,7 +90,8 @@ function Card({ data }) {
                 </svg>
               </div>
               <div
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   clickHandler("ADD_ITEM");
                 }}
                 className=" font-bold text-xs xl:text-lg text-white "
@@ -97,7 +102,8 @@ function Card({ data }) {
           ) : (
             <div
               className="bg-orange-500 text-white font-bold text-3xl h-12 w-12 rounded-2xl flex items-center justify-center"
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 clickHandler("INCREASE");
               }}
             >
@@ -125,7 +131,8 @@ function Card({ data }) {
           {quantity === 1 && (
             <div
               className="bg-orange-500 text-white font-bold text-3xl h-12 w-12 rounded-2xl flex items-center justify-center"
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 clickHandler("REMOVE_ITEM");
               }}
             >
@@ -148,7 +155,8 @@ function Card({ data }) {
           {quantity > 1 && (
             <div
               className="bg-orange-500 text-white font-bold text-3xl h-12 w-12 rounded-2xl flex items-center justify-center"
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 clickHandler("DECREASE");
               }}
             >

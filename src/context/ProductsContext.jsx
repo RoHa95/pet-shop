@@ -18,15 +18,19 @@ function ProductsProvider({ children }) {
     fetchProducts();
   }, []);
   return (
-    <ProductsContext.Provider value={{products,setProducts}}>
+    <ProductsContext.Provider value={{ products, setProducts }}>
       {children}
     </ProductsContext.Provider>
   );
 }
-const useProducts = ()=>{
-  const {products} = useContext(ProductsContext);
+const useProducts = () => {
+  const { products } = useContext(ProductsContext);
   return products;
-}
-
-export {useProducts};
+};
+const useDetailsProducts = (id) => {
+  const { products } = useContext(ProductsContext);
+  const result = products.find((item) => item.id === id);
+  return result;
+};
+export { useProducts, useDetailsProducts };
 export default ProductsProvider;
