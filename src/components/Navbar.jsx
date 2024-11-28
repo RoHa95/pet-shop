@@ -166,7 +166,7 @@ function Navbar() {
           </div>
           {/* left */}
           <div className=" flex items-center justify-center lg:gap-x-4 xl:gap-x-6">
-            <div className=" relative py-1 px-2 lg:py-2 lg:px-3 flex items-center justify-center">
+            <div onClick={()=>{navigate("/cart")}} className=" relative py-1 px-2 lg:py-2 lg:px-3 flex items-center justify-center">
               <svg
                 viewBox="0 0 34 34"
                 fill="none"

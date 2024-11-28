@@ -10,7 +10,7 @@ const initialState = {
   checkout: false,
 };
 const reducer = (state, action) => {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case "ADD_ITEM":
       if (!state.selectedItems.find((item) => item.id === action.payload.id)) {
@@ -50,32 +50,33 @@ const reducer = (state, action) => {
       };
     case "CHECKOUT":
       return {
+        ...state,
         selectedItems: [],
         itemsCounter: 0,
         total: 0,
         checkout: true,
       };
-      case "LIKE_ITEM":
-        if (!state.likedItems.find((item) => item.id === action.payload.id)) {
-          state.likedItems.push({ ...action.payload, liked: true });
-        }
-        return {
-          ...state,
-          ...sumLikedProducts(state.likedItems)
-        };
-      case "UNLIKE_ITEM":
-        const newLikeItems = state.likedItems.filter(
-          (item) => item.id !== action.payload.id
-        );
-        const unlikeIndex = state.likedItems.findIndex(
-          (item) => item.id === action.payload.id
-        );
-        state.likedItems[unlikeIndex].liked= false;
-        return {
-          ...state,
-          likedItems: [...newLikeItems],
-          ...sumLikedProducts(newLikeItems)
-        };
+    case "LIKE_ITEM":
+      if (!state.likedItems.find((item) => item.id === action.payload.id)) {
+        state.likedItems.push({ ...action.payload, liked: true });
+      }
+      return {
+        ...state,
+        ...sumLikedProducts(state.likedItems)
+      };
+    case "UNLIKE_ITEM":
+      const newLikeItems = state.likedItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+      const unlikeIndex = state.likedItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      state.likedItems[unlikeIndex].liked= false;
+      return {
+        ...state,
+        likedItems: [...newLikeItems],
+        ...sumLikedProducts(newLikeItems)
+      };
     default:
       throw new Error("Invalid Action");
   }
