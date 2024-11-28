@@ -239,7 +239,7 @@ function Navbar() {
             onClick={menuHandler}
             tabIndex={0}
             onBlur={blurHandler}
-            className="menu-btn relative flex items-center justify-between gap-x-2"
+            className="menu-btn relative flex items-center cursor-pointer justify-between gap-x-2"
           >
             فروشگاه
             <svg
@@ -271,7 +271,7 @@ function Navbar() {
             </ul>
           </li>
 
-          <Link to="/category/5" className="text-black">
+          <Link to="/blog" className="text-black">
             <li>وبلاگ</li>
           </Link>
           <li>تماس با ما</li>

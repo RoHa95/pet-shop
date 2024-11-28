@@ -11,6 +11,7 @@ import FavoriteProducts from "./pages/FavoriteProducts";
 import AuthPage from "./pages/AuthPage";
 import DetailsPage from "./pages/DetailsPage";
 import ShoppingCart from "./pages/ShoppingCart";
+import Blogs from "./pages/Blogs";
 function App() {
   return (
     <CardProvider>
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/favoriteProducts" element={<FavoriteProducts />} />
             <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/blog" element={<Blogs/>} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BlogsProvider>
