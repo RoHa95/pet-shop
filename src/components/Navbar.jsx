@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useCard } from "../context/CardContext";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
@@ -7,6 +7,7 @@ function Navbar() {
   const itemsCounter = state.itemsCounter;
   const likesCounter = state.likesCounter;
   const navigate = useNavigate();
+  const ref = useRef();
   const menuHandler = (e) => {
     document.querySelector(".menu").classList.toggle("hidden");
   };
@@ -166,7 +167,12 @@ function Navbar() {
           </div>
           {/* left */}
           <div className=" flex items-center justify-center lg:gap-x-4 xl:gap-x-6">
-            <div onClick={()=>{navigate("/cart")}} className=" relative py-1 px-2 lg:py-2 lg:px-3 flex items-center justify-center">
+            <div
+              onClick={() => {
+                navigate("/cart");
+              }}
+              className=" relative py-1 px-2 lg:py-2 lg:px-3 flex items-center justify-center"
+            >
               <svg
                 viewBox="0 0 34 34"
                 fill="none"
@@ -184,7 +190,10 @@ function Navbar() {
                 {itemsCounter}
               </div>
             </div>
-            <div onClick={likeClickHandler} className="relative py-1 px-2 lg:py-2 lg:px-3 flex items-center justify-center">
+            <div
+              onClick={likeClickHandler}
+              className="relative py-1 px-2 lg:py-2 lg:px-3 flex items-center justify-center"
+            >
               <svg
                 viewBox="0 0 35 30"
                 fill="none"
@@ -198,31 +207,27 @@ function Navbar() {
                   fill="black"
                 />
               </svg>
-              <div
-                
-                className=" absolute top-0 right-0 flex items-center justify-center bg-orange-400 text-white h-4 w-4 lg:h-6 lg:w-6 rounded-full"
-              >
+              <div className=" absolute top-0 right-0 flex items-center justify-center bg-orange-400 text-white h-4 w-4 lg:h-6 lg:w-6 rounded-full">
                 {likesCounter}
               </div>
             </div>
             <Link to="/auth">
-            <div>
-              <svg
-                viewBox="0 0 27 34"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className=" w-5 h-6 lg:w-5 lg:h-6 xl:w-7 xl:h-8"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M26.4 27.0724C26.4 32.5657 18.8667 33.2007 13.2017 33.2007L12.7963 33.2004C9.18701 33.1916 0 32.9637 0 27.039C0 21.6578 7.23059 20.9386 12.8525 20.9115L13.607 20.9111C17.2161 20.9198 26.4 21.1477 26.4 27.0724ZM13.2017 23.4107C6.1 23.4107 2.5 24.6307 2.5 27.039C2.5 29.469 6.1 30.7007 13.2017 30.7007C20.3017 30.7007 23.9 29.4807 23.9 27.0724C23.9 24.6424 20.3017 23.4107 13.2017 23.4107ZM13.2017 0.083374C18.0817 0.083374 22.05 4.05337 22.05 8.93337C22.05 13.8134 18.0817 17.7817 13.2017 17.7817H13.1483C8.27833 17.7667 4.33333 13.795 4.34995 8.92837C4.34995 4.05337 8.32 0.083374 13.2017 0.083374ZM13.2017 2.46337C9.63333 2.46337 6.72997 5.36504 6.72997 8.93337C6.71833 12.49 9.6 15.39 13.1533 15.4034L13.2017 16.5934V15.4034C16.7683 15.4034 19.67 12.5 19.67 8.93337C19.67 5.36504 16.7683 2.46337 13.2017 2.46337Z"
-                  fill="black"
-                />
-              </svg>
-            </div>
+              <div>
+                <svg
+                  viewBox="0 0 27 34"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className=" w-5 h-6 lg:w-5 lg:h-6 xl:w-7 xl:h-8"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M26.4 27.0724C26.4 32.5657 18.8667 33.2007 13.2017 33.2007L12.7963 33.2004C9.18701 33.1916 0 32.9637 0 27.039C0 21.6578 7.23059 20.9386 12.8525 20.9115L13.607 20.9111C17.2161 20.9198 26.4 21.1477 26.4 27.0724ZM13.2017 23.4107C6.1 23.4107 2.5 24.6307 2.5 27.039C2.5 29.469 6.1 30.7007 13.2017 30.7007C20.3017 30.7007 23.9 29.4807 23.9 27.0724C23.9 24.6424 20.3017 23.4107 13.2017 23.4107ZM13.2017 0.083374C18.0817 0.083374 22.05 4.05337 22.05 8.93337C22.05 13.8134 18.0817 17.7817 13.2017 17.7817H13.1483C8.27833 17.7667 4.33333 13.795 4.34995 8.92837C4.34995 4.05337 8.32 0.083374 13.2017 0.083374ZM13.2017 2.46337C9.63333 2.46337 6.72997 5.36504 6.72997 8.93337C6.71833 12.49 9.6 15.39 13.1533 15.4034L13.2017 16.5934V15.4034C16.7683 15.4034 19.67 12.5 19.67 8.93337C19.67 5.36504 16.7683 2.46337 13.2017 2.46337Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
             </Link>
-           
           </div>
         </div>
       </div>
@@ -257,14 +262,16 @@ function Navbar() {
             <ul className="hidden menu absolute w-full top-10 right-0 bg-orange-200 bg-opacity-30 transition-all ease-out delay-100 duration-500">
               <li
                 className=" border-b text-orange-300 text-base p-2"
-                onClick={()=>navigate("/category/7")}
+                onClick={() => navigate("/category/7")}
               >
                 سگ
               </li>
 
               <li
                 className=" border-b text-orange-300 text-base p-2"
-                onClick={()=>navigate("/category/6")}
+                onClick={() => {
+                  navigate("/category/6");
+                }}
               >
                 گربه
               </li>
@@ -294,9 +301,10 @@ function Navbar() {
           </svg>
         </div>
         <div
+          ref={ref}
           tabIndex={0}
           onBlur={verticalmenuHandler}
-          className=" h-menu hidden md:hidden absolute h-screen w-1/2 cursor-pointer top-16 p-8 right-0 bg-orange-400 transition-all"
+          className=" h-menu hidden md:hidden fixed h-screen z-50 w-1/2 cursor-pointer top-0 p-8 right-0 bg-orange-400 transition-all"
         >
           <ul className=" relative flex flex-col justify-center gap-y-6 font-bold text-white text-xl">
             <div
@@ -345,19 +353,25 @@ function Navbar() {
               <ul className="hidden menu2 absolute w-full top-10 right-0 bg-orange-400 transition-all ease-out">
                 <li
                   className=" border-b bg-orange-300 text-white-300 text-base p-2"
-                  onClick={subMenuHandler}
+                  onClick={() => {
+                    navigate("/category/7");
+                    ref.current.classList.add("hidden");
+                  }}
                 >
                   سگ
                 </li>
                 <li
                   className=" border-b bg-orange-300 text-white-300 text-base p-2"
-                  onClick={subMenuHandler}
+                  onClick={() => {
+                    navigate("/category/6");
+                    ref.current.classList.add("hidden");
+                  }}
                 >
                   گربه
                 </li>
               </ul>
             </li>
-            <Link to="/category/5" className="text-white">
+            <Link to="/blog" className="text-white">
               <li className="option border-b-2 hover:text-orange-200 border-b-white py-2 border-opacity-35 cursor-pointer">
                 وبلاگ
               </li>
