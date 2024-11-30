@@ -113,7 +113,13 @@ function Navbar() {
               placeholder="محصول مورد نظر رو جستجو کنید ..."
               value={search}
               onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
-              className=" bg-transparent md:text-sm lg:text-lg w-full mr-0.5 lg:mr-4"
+              className="hidden sm:inline-flex bg-transparent md:text-sm lg:text-lg w-full mr-0.5 lg:mr-4"
+            />
+              <input
+              placeholder="جستجو"
+              value={search}
+              onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
+              className="sm:hidden bg-transparent md:text-sm lg:text-lg w-full mr-0.5 lg:mr-4"
             />
             <button
               onClick={searchHandler}

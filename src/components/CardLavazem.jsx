@@ -28,15 +28,15 @@ function CardLavazem({ data }) {
       </div>
       <div className=" flex w-full flex-col items-center justify-between xl:gap-y-5">
         <div className="w-full flex items-center justify-between">
-          <div className=" text-lg xl:text-xl font-bold text-emerald-400 group-hover:text-orange-500">
+          <div className="text-xs md:text-lg xl:text-xl font-bold text-emerald-400 group-hover:text-orange-500">
             قیمت:
           </div>
-          <div className=" text-lg xl:text-xl font-bold text-emerald-400 group-hover:text-orange-500">
-            {price}
+          <div className="text-xs md:text-lg xl:text-xl font-bold text-emerald-400 group-hover:text-orange-500">
+            {price} هزار تومان
           </div>
         </div>
          {/* buttons */}
-         <div className=" flex w-full items-center justify-center ">
+         <div className=" flex w-full items-center justify-center mt-2 sm:mt-0 ">
             {quantity === 0 ? (
               <div
                 onClick={(e) => {

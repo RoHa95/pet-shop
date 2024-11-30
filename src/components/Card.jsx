@@ -73,7 +73,7 @@ function Card({ data }) {
         </div>
 
         {/* buttons */}
-        <div className=" flex w-full items-center justify-center ">
+        <div className=" flex w-full items-center justify-center mt-2 sm:mt-0 ">
           {quantity === 0 ? (
             <div
               onClick={(e) => {

@@ -79,8 +79,8 @@ function RecentlyProducts() {
   return (
     <div className=" w-screen relative container mx-auto px-3 sm:px-8 xl:max-w-[1240px]">
       <div className=" flex items-center justify-between mb-12 mt-4">
-      <div className=" text-sm sm:text-3xl font-bold">جدیدترین محصولات</div>
-        <div className=" text-xs sm:text-2xl font-bold text-orange-500">
+      <div className=" text-xl sm:text-3xl font-bold">جدیدترین محصولات</div>
+        <div className=" text-xl sm:text-2xl font-bold text-orange-500">
           <Link to="/products" className=" text-orange-500 hover:text-orange-300">  مشاهده همه</Link>
         </div>
       </div>
