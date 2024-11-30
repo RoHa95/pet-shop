@@ -9,7 +9,9 @@ function Footer() {
           <div className="w-full mb-5 sm:mb-7 md:mb-16 xl:my-32 flex justify-evenly lg:pr-20">
             <div className="w-1/2 sm:w-1/3">
               <ul className=" flex flex-col">
-                <li className=" font-bold text-xs sm:text-sm lg:text-lg text-black">دسترسی سریع</li>
+                <li className=" font-bold text-xs sm:text-sm lg:text-lg text-black">
+                  دسترسی سریع
+                </li>
                 <li className=" text-gray-400 font-normal text-xs sm:text-sm lg:text-lg">
                   درباره ما
                 </li>
@@ -26,11 +28,15 @@ function Footer() {
             </div>
             <div className="hidden sm:inline-flex sm:w-1/3">
               <ul className=" flex flex-col">
-                <li className=" font-bold text-xs sm:text-sm lg:text-lg text-black">لینک های مهم</li>
+                <li className=" font-bold text-xs sm:text-sm lg:text-lg text-black">
+                  لینک های مهم
+                </li>
                 <li className=" text-gray-400 font-normal text-xs sm:text-sm lg:text-lg">
                   حساب کاربری من
                 </li>
-                <li className=" text-gray-400 font-normal text-xs sm:text-sm lg:text-lg">سبد خرید</li>
+                <li className=" text-gray-400 font-normal text-xs sm:text-sm lg:text-lg">
+                  سبد خرید
+                </li>
                 <li className=" text-gray-400 font-normal text-xs sm:text-sm lg:text-lg">
                   قوانین و مقررات
                 </li>
@@ -91,14 +97,18 @@ function Footer() {
                       fill="black"
                     />
                   </svg>
-                  <div className=" font-bold text-[8px] sm:text-xs lg:text-lg">شماره تماس</div>
+                  <div className=" font-bold text-[8px] sm:text-xs lg:text-lg">
+                    شماره تماس
+                  </div>
                 </div>
-                <div className=" text-orange-500 text-[8px] sm:text-xs lg:text-xl font-bold px-2">۰۹۱۷۱۲۳۴۵۶۷</div>
+                <div className=" text-orange-500 text-[8px] sm:text-xs lg:text-xl font-bold px-2">
+                  ۰۹۱۷۱۲۳۴۵۶۷
+                </div>
               </div>
             </div>
           </div>
           <div className="py-2 text-xs md:text-sm lg:text-lg lg:py-8 border-t-2 w-full text-center border-dashed border-orange-500">
-            تمامی حقوق این وبسایت برای 
+            تمامی حقوق این وبسایت برای
             <span className="text-orange-500 px-0.5">شاپت</span> محفوظ می باشد.
           </div>
         </div>
