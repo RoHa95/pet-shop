@@ -12,6 +12,7 @@ import AuthPage from "./pages/AuthPage";
 import DetailsPage from "./pages/DetailsPage";
 import ShoppingCart from "./pages/ShoppingCart";
 import Blogs from "./pages/Blogs";
+import SearchResult from "./pages/SearchResult";
 function App() {
   return (
     <CardProvider>
@@ -27,6 +28,7 @@ function App() {
             <Route path="/favoriteProducts" element={<FavoriteProducts />} />
             <Route path="/cart" element={<ShoppingCart />} />
             <Route path="/blog" element={<Blogs/>} />
+            <Route path="/search" element={<SearchResult/>} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BlogsProvider>

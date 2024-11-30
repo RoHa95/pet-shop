@@ -6,8 +6,8 @@ function Footer() {
       <img src={bgfooter} />
       <div className=" w-screen absolute bottom-0 right-0">
         <div className="w-full relative h-full container px-20 md:px-44 mx-auto xl:max-w-[1240px] flex flex-col items-center">
-          <div className="w-full sm:mb-5 md:mb-16 xl:my-32 flex justify-evenly lg:pr-20">
-            <div className=" w-1/3">
+          <div className="w-full mb-5 sm:mb-7 md:mb-16 xl:my-32 flex justify-evenly lg:pr-20">
+            <div className="w-1/2 sm:w-1/3">
               <ul className=" flex flex-col">
                 <li className=" font-bold text-xs sm:text-sm lg:text-lg text-black">دسترسی سریع</li>
                 <li className=" text-gray-400 font-normal text-xs sm:text-sm lg:text-lg">
@@ -24,7 +24,7 @@ function Footer() {
                 </li>
               </ul>
             </div>
-            <div className=" w-1/3">
+            <div className="hidden sm:inline-flex sm:w-1/3">
               <ul className=" flex flex-col">
                 <li className=" font-bold text-xs sm:text-sm lg:text-lg text-black">لینک های مهم</li>
                 <li className=" text-gray-400 font-normal text-xs sm:text-sm lg:text-lg">
@@ -39,7 +39,7 @@ function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="w-1/3 flex flex-col">
+            <div className="w-1/2 sm:w-1/3 flex flex-col">
               <div className=" flex items-center justify-start gap-x-4">
                 <svg
                   width="49"
@@ -47,6 +47,7 @@ function Footer() {
                   viewBox="0 0 49 49"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="xl:w-12 xl:h-12 md:w-10 md:h-10 w-8 h-8"
                 >
                   <path
                     d="M24.0349 9.28006e-06C23.5038 0.00545089 23.0035 0.248963 22.6608 0.672728L0.111115 28.4766L2.16921 30.13L24.0626 3.1303L46.8175 30.1478L48.8427 28.4576L25.4205 0.647674C25.0706 0.230371 24.5613 -0.00169122 24.0349 9.28006e-06Z"
@@ -65,7 +66,7 @@ function Footer() {
                     fill="black"
                   />
                 </svg>
-                <div className=" text-xs sm:text-sm lg:text-xl font-bold text-orange-500">
+                <div className=" text-[10px] sm:text-sm lg:text-xl font-bold text-orange-500">
                   فروشگاه شاپت
                 </div>
               </div>
@@ -81,6 +82,7 @@ function Footer() {
                     viewBox="0 0 19 22"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="hidden sm:inline-flex"
                   >
                     <path
                       fill-rule="evenodd"

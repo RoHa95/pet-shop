@@ -29,7 +29,7 @@ function Category() {
           className="hidden lg:flex absolute -top-14 left-32"
         />
       </div>
-      <div className=" flex items-center justify-between gap-x-5">
+      <div className=" grid grid-cols-2 gap-3 md:flex items-center justify-between md:gap-x-5 md:gap-y-0">
         <div>
           <Link to="/category/1">
             <img src={pink} alt="" />

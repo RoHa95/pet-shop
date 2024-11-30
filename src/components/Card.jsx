@@ -9,27 +9,29 @@ function Card({ data }) {
   const quantity = productQuantity(state, id);
   const likePosition = productLikePosition(state, id);
   console.log(likePosition);
-const navigate = useNavigate();
+  const navigate = useNavigate();
   // console.log(state);
   const clickHandler = (type) => {
     dispatch({ type, payload: data });
   };
   return (
-    <div onClick={()=>{navigate(`/products/${id}`)}} className=" xl:max-w-[275px] xl:h-[454px] group flex flex-col border-2 border-dashed rounded-xl p-5 border-gray-300 hover:border-orange-500 hover:bg-orange-500 hover:bg-opacity-10 items-center justify-between">
+    <div
+      onClick={() => {
+        navigate(`/products/${id}`);
+      }}
+      className=" xl:max-w-[275px] xl:h-[454px] group flex flex-col border-2 border-dashed rounded-xl p-5 border-gray-300 hover:border-orange-500 hover:bg-orange-500 hover:bg-opacity-10 items-center justify-between"
+    >
       <div className=" flex w-full h-full flex-col items-start justify-between">
         <div className=" relative xl:h-60 xl:w-60 p-2 xl:p-4 flex items-center justify-center">
           <img src={image} alt="p-image" className="min-w-28" />
-          <div
-            className=" absolute top-0 right-0"
-           
-          >
+          <div className=" absolute top-0 right-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className={likePosition?"hidden":"h-6 w-6"}
+              className={likePosition ? "hidden" : "h-6 w-6"}
               onClick={(e) => {
                 e.stopPropagation();
                 clickHandler("LIKE_ITEM");
@@ -45,10 +47,11 @@ const navigate = useNavigate();
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="#dc2626"
-              className={likePosition?"h-6 w-6":"hidden"}
-              onClick={()=>{
+              className={likePosition ? "h-6 w-6" : "hidden"}
+              onClick={() => {
                 e.stopPropagation();
-                clickHandler("UNLIKE_ITEM")}}
+                clickHandler("UNLIKE_ITEM");
+              }}
             >
               <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
             </svg>
@@ -60,10 +63,10 @@ const navigate = useNavigate();
       </div>
       <div className=" flex w-full flex-col items-center justify-between xl:gap-y-5">
         <div className="w-full flex items-center justify-between">
-          <div className=" text-lg xl:text-2xl font-bold text-emerald-400 group-hover:text-orange-500">
+          <div className="text-sm md:text-lg xl:text-2xl font-bold text-emerald-400 group-hover:text-orange-500">
             قیمت:
           </div>
-          <div className=" text-lg xl:text-2xl font-bold text-emerald-400 group-hover:text-orange-500">
+          <div className="text-sm md:text-lg xl:text-2xl font-bold text-emerald-400 group-hover:text-orange-500">
             {price}
             <span className="pr-1">تومان</span>
           </div>
@@ -72,7 +75,13 @@ const navigate = useNavigate();
         {/* buttons */}
         <div className=" flex w-full items-center justify-center ">
           {quantity === 0 ? (
-            <div className=" group-hover:bg-orange-500 bg-cyan-600 flex items-center justify-center xl:justify-between w-full py-2 px-2 sm:px-6 gap-x-2  rounded-lg">
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                clickHandler("ADD_ITEM");
+              }}
+              className=" group-hover:bg-orange-500 bg-cyan-600 flex items-center justify-center xl:justify-between w-full py-2 px-2 sm:px-6 gap-x-2  rounded-lg"
+            >
               <div className="flex group-hover:bg-orange-500 bg-cyan-600">
                 <svg
                   width="27"
@@ -89,13 +98,7 @@ const navigate = useNavigate();
                   />
                 </svg>
               </div>
-              <div
-                onClick={(e) => {
-                  e.stopPropagation();
-                  clickHandler("ADD_ITEM");
-                }}
-                className=" font-bold text-xs xl:text-lg text-white "
-              >
+              <div className=" font-bold text-xs xl:text-lg text-white ">
                 افزودن به سبد خرید
               </div>
             </div>

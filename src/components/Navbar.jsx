@@ -1,13 +1,33 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useCard } from "../context/CardContext";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useProducts } from "../context/ProductsContext";
 
 function Navbar() {
   const [state] = useCard();
+  const products = useProducts();
+  const [search, setSearch] = useState("");
+  const [desplayed, setDesplayed] = useState();
   const itemsCounter = state.itemsCounter;
   const likesCounter = state.likesCounter;
   const navigate = useNavigate();
   const ref = useRef();
+
+  useEffect(() => {
+    console.log("search done");
+    const result = products.filter((item) =>
+      item.name.toLowerCase().includes(search)
+
+    );
+    setDesplayed(result);
+   
+  }, [search]);
+
+  useEffect(() => {
+    console.log(desplayed);
+   
+  }, [desplayed]);
+
   const menuHandler = (e) => {
     document.querySelector(".menu").classList.toggle("hidden");
   };
@@ -34,6 +54,10 @@ function Navbar() {
   };
   const barMenuHandler = () => {
     document.querySelector(".h-menu").classList.remove("hidden");
+  };
+  const searchHandler = () => {
+    console.log(search);
+    navigate("/search",{state:desplayed});
   };
   const likeClickHandler = () => navigate("/favoriteProducts");
   return (
@@ -87,9 +111,14 @@ function Navbar() {
           <div className=" flex w-full rounded-full h-12 px-2 bg-gray-100 items-center justify-between md:mx-4">
             <input
               placeholder="محصول مورد نظر رو جستجو کنید ..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
               className=" bg-transparent md:text-sm lg:text-lg w-full mr-0.5 lg:mr-4"
             />
-            <button className=" w-fit p-1 bg-violet-700 rounded-full ">
+            <button
+              onClick={searchHandler}
+              className=" w-fit p-1 bg-violet-700 rounded-full "
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
