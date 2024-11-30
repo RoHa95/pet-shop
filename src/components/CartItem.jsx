@@ -16,9 +16,9 @@ function CartItem({ data }) {
       <div className=" flex flex-col p-3 justify-center gap-y-2">
         <div className=" text-base lg:text-xl font-bold">{data.name}</div>
         <div className=" text-gray-500">{data.price} هزار تومان</div>
-        <div className=" flex items-center gap-x-2">
+        <div className=" flex items-stretch gap-x-2">
           {data.categories.map((item) => (
-            <span className="text-xs sm:text-base bg-orange-500 rounded text-orange-200 px-3">
+            <span className="text-[10px] sm:text-base bg-orange-500 rounded text-orange-200 px-3">
               {item}{" "}
             </span>
           ))}
