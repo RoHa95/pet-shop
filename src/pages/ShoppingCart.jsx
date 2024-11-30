@@ -17,7 +17,7 @@ function ShoppingCart() {
       <Ads />
       <Navbar />
       <div className="container mx-auto p-8 xl:max-w-[1240px] flex flex-col sm:flex-row">
-        {cartItems[0].selectedItems.length !== 0 ? <div className="sm:w-3/4 ml-4 xl:ml-20">{cartItems[0].selectedItems.map(item=>(<CartItem data={item}/>))}</div>:<p className=" lg:w-3/4">لیست خرید شما خالی می باشد.</p>
+        {cartItems[0].selectedItems.length !== 0 ? <div className="sm:w-3/4 sm:ml-4 xl:ml-20">{cartItems[0].selectedItems.map(item=>(<CartItem data={item}/>))}</div>:<p className=" lg:w-3/4">لیست خرید شما خالی می باشد.</p>
         }
         <div className="sm:w-1/4 m-6 h-fit rounded-2xl border-2 border-dashed border-orange-500 p-3">
         <div className=" w-full flex items-center justify-between"><div>تعداد کالاها : </div><div>{cartItems[0].itemsCounter} عدد</div></div>

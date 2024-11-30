@@ -18,14 +18,14 @@ function CartItem({ data }) {
         <div className=" text-gray-500">{data.price} هزار تومان</div>
         <div className=" flex items-center gap-x-2">
           {data.categories.map((item) => (
-            <span className=" bg-orange-500 rounded text-orange-200 px-3">
+            <span className="text-xs sm:text-base bg-orange-500 rounded text-orange-200 px-3">
               {item}{" "}
             </span>
           ))}
         </div>
         <div className=" flex items-center justify-start gap-x-3">
           <div
-            className=" w-10 h-10 text-center text-3xl text-white bg-orange-500 rounded-sm"
+            className="w-6 h-6 sm:w-10 sm:h-10 text-center flex items-center justify-center text-lg sm:text-3xl text-white bg-orange-500 rounded-sm"
             onClick={() => {
               clickHandler("INCREASE");
             }}
@@ -36,7 +36,7 @@ function CartItem({ data }) {
           <div className=" text-gray-500">تعداد : {data.quantity}</div>
           {data.quantity > 1 ? (
             <div
-              className="w-10 h-10 text-white text-3xl pb-6 text-center bg-orange-500 rounded-sm"
+              className="w-6 h-6 sm:w-10 sm:h-10 text-center flex items-center justify-center text-lg sm:text-3xl text-white bg-orange-500 rounded-sm"
               onClick={() => {
                 clickHandler("DECREASE");
               }}
@@ -46,7 +46,7 @@ function CartItem({ data }) {
             </div>
           ) : (
             <div
-              className="w-10 h-10 flex items-center justify-center bg-orange-500 p-2 rounded-sm"
+              className="w-6 h-6 sm:w-10 sm:h-10 text-center flex items-center justify-center text-lg sm:text-3xl bg-orange-500 rounded-sm"
               onClick={() => {
                 clickHandler("REMOVE_ITEM");
               }}
