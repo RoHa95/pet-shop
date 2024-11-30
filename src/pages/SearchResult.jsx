@@ -14,7 +14,7 @@ function SearchResult() {
     <div>
         <Ads/>
         <Navbar/>
-        <div className=' container mx-auto p-8 max-w-[1240px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>{data.length === 0 ?<p>محصول مورد نظر شما یافت نشد. </p>: data.map(item=>(<Card data={item}/>))}</div>
+        <div className=' container mx-auto p-8 max-w-[1240px] grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>{data.length === 0 ?<p>محصول مورد نظر شما یافت نشد. </p>: data.map(item=>(<Card data={item}/>))}</div>
         <Footer/>
     </div>
   )
