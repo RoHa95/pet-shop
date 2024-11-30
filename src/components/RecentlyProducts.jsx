@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useProducts } from "../context/ProductsContext";
 import Card from "./Card";
 import dog from "../assets/images/dog.png";
@@ -79,9 +79,15 @@ function RecentlyProducts() {
   return (
     <div className=" w-screen relative container mx-auto px-3 sm:px-8 xl:max-w-[1240px]">
       <div className=" flex items-center justify-between mb-12 mt-4">
-      <div className=" text-xl sm:text-3xl font-bold">جدیدترین محصولات</div>
+        <div className=" text-xl sm:text-3xl font-bold">جدیدترین محصولات</div>
         <div className=" text-xl sm:text-2xl font-bold text-orange-500">
-          <Link to="/products" className=" text-orange-500 hover:text-orange-300">  مشاهده همه</Link>
+          <Link
+            to="/products"
+            className=" text-orange-500 hover:text-orange-300"
+          >
+            {" "}
+            مشاهده همه
+          </Link>
         </div>
       </div>
 
@@ -93,7 +99,7 @@ function RecentlyProducts() {
           latestProducts.map((item) => <Card key={item.id} data={item} />)
         ) : (
           <div className="w-full flex items-center justify-center">
-          <ThreeDots color="#f97316" />
+            <ThreeDots color="#f97316" />
           </div>
         )}
         <div
