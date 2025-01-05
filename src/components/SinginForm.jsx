@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { crossSigingValidate, validateSigningForm } from "../helper/helper";
 import { Link, useNavigate } from "react-router-dom";
 import toast, {Toaster} from "react-hot-toast"
-// import alert from "react-alert-template-mui"
+// import alertBtn from "react-alert-template-mui"
 // import AlertDialog from "react-alert-template-mui";
 
 
@@ -14,24 +14,52 @@ function SinginForm({setStep}) {
     mobile: "",
     pass: "",
   });
+  const [alertBtn, setAlertBtn] = useState({
+    mobile: "",
+    pass: "",
+  });
+  useEffect(()=>{
+    setAlert(validateSigningForm({mobile,pass}));
+  },[pass,mobile])
   const clickHandler =()=>{
     setStep(1)
   }
+  useParams
+  
   const addHandler=(e)=>{
     e.preventDefault();
-    setAlert(validateSigningForm({mobile,pass}));
-    console.log(alert);
-    const result = crossSigingValidate({mobile,pass});
-    if(!result){
+   setAlertBtn(alert);
+    console.log(mobile);
+    console.log(pass);
+    console.log(alert.mobile);
+    console.log(alert.pass);
+    if(Boolean(alert.mobile) || Boolean(alert.pass)){
+      console.log("khata");
+      
+    }else{
+      console.log("vorood");
       toast.success("ورود با موفقیت انجام شد.");
-      // navigate("/home");
       setTimeout(() => navigate('/home'), 2000);
-      // alert("ورود انجام شد");
-      // AlertDialog.apply("ojjjj")
-      // alert.show("Oh look, an alert!");
-      console.log("ورود")
     }
-    console.log("ops...")
+    
+    // console.log(alert);
+    // const result = crossSigingValidate({mobile,pass});
+    // console.log(result);
+    
+    // if(result){
+    //   toast.success("ورود با موفقیت انجام شد.");
+    //   // navigate("/home");
+    //   setTimeout(() => navigate('/home'), 2000);
+    //   // alert("ورود انجام شد");
+    //   // AlertDialog.apply("ojjjj")
+    //   // alert.show("Oh look, an alert!");
+    //   console.log(pass);
+    //   console.log(mobile);
+    //   console.log(result);
+    // }else{
+    //   console.log("gpoooo");
+    // }
+    // console.log("ops...")
     return;
   }
   return (
@@ -92,7 +120,7 @@ function SinginForm({setStep}) {
           className=" w-full p-2 border border-orange-500 rounded-md"
         />
          <div className="h-2">
-          {alert.mobile && <p className="bg-red-100 text-red-400 text-[10px] py-0.5 px-1 rounded">{alert.mobile}</p>}
+          {alertBtn.mobile && <p className="bg-red-100 text-red-400 text-[10px] py-0.5 px-1 rounded">{alertBtn.mobile}</p>}
           </div>
       </div>
       
@@ -106,7 +134,7 @@ function SinginForm({setStep}) {
           className=" w-full p-2 border border-orange-500 rounded-md"
         />
         <div className="h-2">
-           {alert.pass && <p className="bg-red-100 text-red-400 text-xs py-0.5 px-1 rounded">{alert.pass}</p>}
+           {alertBtn.pass && <p className="bg-red-100 text-red-400 text-xs py-0.5 px-1 rounded">{alertBtn.pass}</p>}
            </div>
       </div>
 

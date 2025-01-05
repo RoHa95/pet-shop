@@ -7,7 +7,7 @@ import Ads from "../components/Ads"
 function FavoriteProducts() {
   const [state] = useCard();
   return (
-    <div className=" flex flex-col">
+    <div>
       <Ads/>
       <Navbar />
       <div className=" container flex-grow mx-auto px-8  my-10 xl:max-w-[1240px]">

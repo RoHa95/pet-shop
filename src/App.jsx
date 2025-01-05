@@ -19,16 +19,16 @@ function App() {
       <ProductsProvider>
         <BlogsProvider>
           <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<DetailsPage />} />
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/category/:id" element={<CategoryList />} />
-            <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/favoriteProducts" element={<FavoriteProducts />} />
             <Route path="/cart" element={<ShoppingCart />} />
-            <Route path="/blog" element={<Blogs/>} />
-            <Route path="/search" element={<SearchResult/>} />
+            <Route path="/blog" element={<Blogs />} />
+            <Route path="/search" element={<SearchResult />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BlogsProvider>

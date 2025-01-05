@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { validEmail,validateForm,crossValidate } from "../helper/helper";
+import React, { useEffect, useState } from "react";
+import { validEmail, validateForm, crossValidate } from "../helper/helper";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 function SingUp({ setStep }) {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
@@ -12,22 +13,40 @@ function SingUp({ setStep }) {
     pass: "",
     repass: "",
   });
+  const [alertBtn, setAlertBtn] = useState({
+    mobile: "",
+    email: "",
+    pass: "",
+    repass: "",
+  });
+
+  useEffect(() => {
+    setAlert(validateForm({ mobile, email, pass, repass }));
+  }, [mobile, email, pass, repass]);
   const clickHandler = (e) => {
     e.preventDefault();
-    setAlert(validateForm({mobile,email,pass,repass}));
+    setAlertBtn(alert);
     console.log(alert);
-    const result = crossValidate({mobile,email,pass,repass});
-    if(!result){
-      setStep(2);
-      console.log("click")
+    if (
+      Boolean(alert.mobile) ||
+      Boolean(alert.pass) ||
+      Boolean(alert.email) ||
+      Boolean(alert.repass)
+    ) {
+      console.log("khata");
+    } else {
+      console.log("vorood");
+      toast.success("ثبت نام شما با موفقیت انجام شد.");
+      setTimeout(()=>setStep(2), 2000);
+      
     }
-    console.log("ops...")
+    console.log("ops...");
     return;
   };
- 
-  const navigateHandler =()=>{
+
+  const navigateHandler = () => {
     setStep(2);
-  }
+  };
   return (
     <>
       <form className=" w-fit py-6 px-8 bg-white rounded-3xl my-auto h-fit flex flex-col items-stretch justify-start">
@@ -67,7 +86,10 @@ function SingUp({ setStep }) {
         </div>
         <div className=" w-full flex items-center justify-between">
           <div className="text-orange-500 font-bold text-2xl mb-3">ثبت نام</div>
-          <div onClick={navigateHandler} className="bg-orange-500 text-white rounded-sm px-2 pb-1 font-normal text-sm cursor-pointer mb-3">
+          <div
+            onClick={navigateHandler}
+            className="bg-orange-500 text-white rounded-sm px-2 pb-1 font-normal text-sm cursor-pointer mb-3"
+          >
             ورود
           </div>
         </div>
@@ -85,7 +107,11 @@ function SingUp({ setStep }) {
             className="p-2 border border-orange-500 rounded-md"
           />
           <div className="h-2">
-          {alert.mobile && <p className="bg-red-100 text-red-400 text-[10px] py-0.5 px-1 rounded">{alert.mobile}</p>}
+            {alertBtn.mobile && (
+              <p className="bg-red-100 text-red-400 text-[10px] py-0.5 px-1 rounded">
+                {alertBtn.mobile}
+              </p>
+            )}
           </div>
         </div>
         <div className=" flex flex-col items-stretch  mb-2">
@@ -101,8 +127,12 @@ function SingUp({ setStep }) {
             className=" p-2 border border-orange-500 rounded-md"
           />
           <div className="h-2">
-           {alert.email && <p className="bg-red-100 text-red-400 text-xs py-0.5 px-1 rounded">{alert.email}</p>}
-           </div>
+            {alertBtn.email && (
+              <p className="bg-red-100 text-red-400 text-xs py-0.5 px-1 rounded">
+                {alertBtn.email}
+              </p>
+            )}
+          </div>
         </div>
         <div className=" flex flex-col items-stretch  mb-2">
           <label htmlFor="pass" className=" text-sm pb-1">
@@ -117,8 +147,12 @@ function SingUp({ setStep }) {
             className=" p-2 border border-orange-500 rounded-md"
           />
           <div className="h-2">
-           {alert.pass && <p className="bg-red-100 text-red-400 text-xs py-0.5 px-1 rounded">{alert.pass}</p>}
-           </div>
+            {alertBtn.pass && (
+              <p className="bg-red-100 text-red-400 text-xs py-0.5 px-1 rounded">
+                {alertBtn.pass}
+              </p>
+            )}
+          </div>
         </div>
         <div className=" flex flex-col items-stretch  mb-2">
           <label htmlFor="repeatPass" className=" text-sm pb-1">
@@ -133,8 +167,12 @@ function SingUp({ setStep }) {
             className="p-2 border border-orange-500 rounded-md"
           />
           <div className="h-2">
-           {alert.repass && <p className="bg-red-100 text-red-400 text-xs py-0.5 px-1 rounded">{alert.repass}</p>}
-           </div>
+            {alertBtn.repass && (
+              <p className="bg-red-100 text-red-400 text-xs py-0.5 px-1 rounded">
+                {alertBtn.repass}
+              </p>
+            )}
+          </div>
         </div>
 
         <div
@@ -144,6 +182,7 @@ function SingUp({ setStep }) {
           ثبت نام
         </div>
       </form>
+      <Toaster />
     </>
   );
 }
