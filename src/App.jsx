@@ -19,7 +19,7 @@ function App() {
       <ProductsProvider>
         <BlogsProvider>
           <Routes>
-            <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="/" element={<Home/>} />
             <Route path="/home" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<DetailsPage />} />
